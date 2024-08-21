@@ -1,15 +1,15 @@
 from tkinter import *
 import time
 from playsound import playsound
-import threading
+import threading 
 
-def start_timer():
+def start_timer(): #This function handles user's input
     time_usr = usr_val.get()
     if time_usr <= 0:
         return
     clock_timer(time_usr)
     
-def clock_timer(time_counter):
+def clock_timer(time_counter): #This function handles countdown,time to time label , and if the condition meets then playing sound
     if time_counter >= 0:
         hours = int(time_counter/3600)
         minss = int(time_counter/60)%60
@@ -30,9 +30,8 @@ root.config(bg="black")
 img = PhotoImage(file="timer.png")
 root.iconphoto(False,img)
 
-# 
-lbl = Label(root,text="Enter time in seconds : ",font="digital 24 bold",bg="black",fg="red")
-lbl.place(x = 72, y = 24)
+# Label for showing where to enter the time.
+Label(root,text="Enter time in seconds : ",font="digital 24 bold",bg="black",fg="red").place(x = 72, y = 24)
 
 # Label for showing the timer
 lbl = Label(root,font="digital 24 bold",bg="black",fg="red")
@@ -46,3 +45,6 @@ ent.place(x = 450, y = 24)
 Button(root,text="Set",font="Robote 18 bold",bd=6,relief=RAISED,bg="black",fg="blue",width=9,command=start_timer).place(x = 240, y = 81)
 
 root.mainloop()
+
+# playsound is a library which is used to playsound
+# threading is module allows multiple execution to take place in a single program
